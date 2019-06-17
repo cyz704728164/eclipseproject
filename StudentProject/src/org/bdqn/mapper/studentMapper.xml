@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="org.bdqn.mapper.StudentMapper">
+
+	<select id="getAllStudent" resultType="org.bdqn.entity.Student">
+		select * from student
+	</select>
+	
+	<delete id="deleteStudent" parameterType="int">
+		delete from student where stuno = #{stuno}
+	</delete>
+
+	<insert id="addStudent" parameterType="org.bdqn.entity.Student">
+		insert into student(stuno,stuname,stuage) values(#{stuno},#{stuname},#{stuage})
+	</insert>
+	
+	<update id="updateStudent" parameterType="org.bdqn.entity.Student">
+		update student set stuname = #{stuname},stuage = #{stuage} where stuno = #{stuno}
+	</update>
+	
+</mapper>
